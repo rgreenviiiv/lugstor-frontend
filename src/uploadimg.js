@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import PickUpTime from './pickuptime'
-import InfoTable from './infotable'
+// import PickUpTime from './pickuptime'
 import 'bootstrap/dist/css/bootstrap.css'
 
 export default class Upload extends Component {
@@ -32,11 +31,8 @@ export default class Upload extends Component {
       title: this.state.title,
       image_name: this.state.image_name
     }).then(res => {
-      res.data[0].title = this.state.title,
-      res.data[0].image_name = this.state.image_name
-      console.log(res.data[0].title);
-      console.log(res.data[0].image_name);
-      console.log(res.data)
+      // res.data[0].title = this.state.title,
+      // res.data[0].image_name = this.state.image_name
     })
   }
   render(){
@@ -45,9 +41,12 @@ export default class Upload extends Component {
       <input type="file" className="btn btn-primary" onChange={this.fileSelector}/>
       <button type="button" className="btn btn-primary"onClick={this.fileHandler}>Upload</button>
       <br />
-      <img src={this.state.name} width="500px" height="300px"/>
-      <InfoTable locpickup={this.state.address} lugpickup={this.state.long}/>
-      <div>{this.props.address}</div>
+      <img src={this.state.name} width="500px" height="300px" alt="Luggage"/>
+      {/*<InfoTable locpickup={this.state.address} lugpickup={this.state.long}/>*/}
+      <h2>Pick Up Location:</h2>
+      <h1>{this.props.address}</h1>
+      <h2>Drop Off Location:</h2>
+      <h1>{this.props.dropoff}</h1>
       </div>
     )
   }
